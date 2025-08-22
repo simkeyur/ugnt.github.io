@@ -35,6 +35,12 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #fb923c; /* orange-400 */
         }
+        /* Style for the decorative pattern overlay */
+        .pattern-overlay {
+            background-image: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 1rem 1rem;
+            opacity: 0.5;
+        }
     </style>
     <script>
         tailwind.config = {
@@ -83,17 +89,19 @@
         </div>
     </header>
 
-    <main class="container mx-auto px-6 py-8 md:py-12">
+    <main class="container mx-auto px-6">
 
         <!-- Home Page Content -->
         <div id="home" class="page">
             <!-- Hero Section -->
-            <section class="relative h-[60vh] rounded-2xl overflow-hidden flex items-center justify-center text-center text-white bg-ugnt-blue">
-                <div class="absolute inset-0 bg-black opacity-50 z-10"></div>
+            <section class="relative h-[60vh] rounded-2xl overflow-hidden flex items-center justify-center text-center text-white bg-ugnt-blue mt-8">
                 <!-- Background Image: Replace with a high-quality community photo -->
                 <img src="https://images.unsplash.com/photo-1593347679704-92e3bada6a3a?q=80&w=2670&auto=format&fit=crop" 
                      onerror="this.onerror=null;this.src='https://placehold.co/1200x800/0F172A/FFFFFF?text=UGNT+Community';"
                      alt="Gujarati cultural event" class="absolute inset-0 w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black opacity-60 z-10"></div>
+                <!-- Decorative Pattern Overlay -->
+                <div class="absolute inset-0 pattern-overlay z-10"></div>
                 <div class="relative z-20 p-4">
                     <h1 class="text-4xl md:text-6xl font-bold font-laila leading-tight">United Gujaratis of North Texas</h1>
                     <p class="mt-4 text-lg md:text-xl max-w-2xl mx-auto">Connecting, celebrating, and strengthening the Gujarati community in the DFW Metroplex.</p>
@@ -109,10 +117,18 @@
                     </p>
                 </div>
             </section>
+            
+            <!-- Decorative Divider -->
+            <div class="py-8">
+                <svg width="100%" height="40" viewBox="0 0 1440 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-orange-100">
+                    <path d="M0 20C240 20 240 0 480 0C720 0 720 20 960 20C1200 20 1200 40 1440 40V41H0V20Z" fill="currentColor"/>
+                </svg>
+            </div>
+
         </div>
 
         <!-- Events Page Content -->
-        <div id="events" class="page hidden">
+        <div id="events" class="page hidden py-8 md:py-12">
             <h2 class="text-3xl md:text-4xl font-bold text-ugnt-blue mb-8 text-center">Community Events</h2>
             <div id="events-loading" class="text-center text-slate-500">
                 <p>Loading events...</p>
@@ -123,7 +139,7 @@
         </div>
 
         <!-- Directory Page Content -->
-        <div id="directory" class="page hidden">
+        <div id="directory" class="page hidden py-8 md:py-12">
             <h2 class="text-3xl md:text-4xl font-bold text-ugnt-blue mb-8 text-center">Business Directory</h2>
             <!-- Search and Filter Controls -->
             <div class="mb-8 p-6 bg-white rounded-xl shadow-md">
@@ -147,7 +163,7 @@
         </div>
 
         <!-- Contact/Submit Form Page Content -->
-        <div id="contact" class="page hidden">
+        <div id="contact" class="page hidden py-8 md:py-12">
             <div class="max-w-2xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
                 <h2 class="text-3xl md:text-4xl font-bold text-ugnt-blue mb-2 text-center">Join Our Directory</h2>
                 <p class="text-center text-slate-500 mb-8">Submit your business details to be featured in our community directory. Submissions will be reviewed by an admin before appearing on the site.</p>
@@ -197,7 +213,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.494v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
                 </a>
                 <a href="#" class="hover:text-ugnt-gold transition duration-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664-4.771 4.919-4.919 1.266-.058 1.644-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.059-1.281.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.441 1.441 1.441 1.441-.645 1.441-1.441-.645-1.44-1.441-1.44z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664-4.771 4.919 4.919 1.266-.058 1.644-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.059-1.281.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.441 1.441 1.441 1.441-.645 1.441-1.441-.645-1.44-1.441-1.44z"/></svg>
                 </a>
             </div>
             <p class="text-slate-400">&copy; <span id="copyright-year"></span> United Gujaratis of North Texas. All Rights Reserved.</p>
@@ -206,12 +222,8 @@
 
     <script>
         // --- CONFIGURATION ---
-        // IMPORTANT: Replace these URLs with your own published Google Sheet URLs.
-        // How to publish: In Google Sheets, go to File > Share > Publish to web.
-        // Select "Entire Document" and "Web page", then copy the link.
-        // Then, modify the link: replace '/pubhtml' with '/gviz/tq?tqx=out:json'
-        const EVENTS_SHEET_URL = 'YOUR_EVENTS_GOOGLE_SHEET_URL';
-        const DIRECTORY_SHEET_URL = 'YOUR_DIRECTORY_GOOGLE_SHEET_URL';
+        const EVENTS_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ1m1KPD10bseeiTHrJPZrTZrymnuDY19jPVtDCCR1mDmcprXOcDtjyhbDMo6QhmsF2cE1NHhjusvQG/pub?output=csv';
+        const DIRECTORY_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSSJoSgPzAMs1P9bTEYhvAeV9vAhKYFr-4ChQvUw83wQu9QC-ChYxTBRWm_kE3iRHy-TzJPfD-1gglu/pub?output=csv';
         
         // --- PAGE NAVIGATION ---
         const pages = document.querySelectorAll('.page');
@@ -224,7 +236,6 @@
                 }
             });
             window.scrollTo(0, 0); // Scroll to top on page change
-            // Close mobile menu on navigation
             document.getElementById('mobile-menu').classList.add('hidden');
         }
 
@@ -235,53 +246,73 @@
             mobileMenu.classList.toggle('hidden');
         });
 
-        // --- DYNAMIC DATA FETCHING ---
+        // --- DYNAMIC DATA LOADING ---
         document.addEventListener('DOMContentLoaded', () => {
             loadEvents();
             loadDirectory();
             document.getElementById('copyright-year').textContent = new Date().getFullYear();
         });
 
-        // --- EVENTS LOGIC ---
-        function loadEvents() {
-            const loadingEl = document.getElementById('events-loading');
-            const gridEl = document.getElementById('events-grid');
+        /**
+         * --- CSV PARSER ---
+         * This function takes raw CSV text and converts it into an array of objects.
+         * It correctly handles commas within quoted fields.
+         * @param {string} text The raw CSV text.
+         * @returns {Array<Object>} An array of objects, where each object represents a row.
+         */
+        function parseCSV(text) {
+            const lines = text.trim().split('\n');
+            if (lines.length < 2) return [];
             
-            // Placeholder data for demonstration. Replace with actual fetch logic.
-            if (EVENTS_SHEET_URL === 'YOUR_EVENTS_GOOGLE_SHEET_URL') {
-                loadingEl.innerHTML = `<p class="text-red-500">Please update the EVENTS_SHEET_URL in the script tag.</p>`;
-                const placeholderEvents = [
-                    { title: 'Annual Navratri Garba', date: 'October 12, 2024', description: 'Join us for a night of vibrant music, dance, and celebration.', imageUrl: 'https://images.unsplash.com/photo-1604147551421-5b70a1a6b0c2?q=80&w=2574&auto=format&fit=crop' },
-                    { title: 'Diwali Gala Dinner', date: 'November 2, 2024', description: 'A festive evening with delicious food, cultural performances, and community awards.', imageUrl: 'https://images.unsplash.com/photo-1574109249790-da1c00c3556d?q=80&w=2670&auto=format&fit=crop' },
-                    { title: 'Summer Community Picnic', date: 'June 22, 2024', description: 'A fun-filled day at the park with games, food, and activities for all ages.', imageUrl: 'https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?q=80&w=2832&auto=format&fit=crop' }
-                ];
-                renderEvents(placeholderEvents);
-                return;
-            }
+            const headers = lines[0].split(',').map(h => h.trim());
+            const rows = [];
 
-            fetch(EVENTS_SHEET_URL)
-                .then(res => res.text())
-                .then(text => {
-                    const data = JSON.parse(text.substr(47).slice(0, -2));
-                    const events = data.table.rows.map(row => ({
-                        title: row.c[0]?.v,
-                        date: row.c[1]?.v,
-                        description: row.c[2]?.v,
-                        imageUrl: row.c[3]?.v
-                    })).filter(event => event.title); // Filter out empty rows
-                    
-                    renderEvents(events);
-                })
-                .catch(error => {
-                    console.error('Error fetching events:', error);
-                    loadingEl.innerHTML = `<p class="text-red-500">Could not load events. Please check the sheet URL and permissions.</p>`;
-                });
+            for (let i = 1; i < lines.length; i++) {
+                if (!lines[i]) continue;
+                const obj = {};
+                // This regex handles commas inside quoted fields.
+                const values = lines[i].match(/(".*?"|[^",\r]+)(?=\s*,|\s*$)/g) || [];
+
+                for (let j = 0; j < headers.length; j++) {
+                    let value = values[j] || '';
+                    // Remove quotes if they exist and trim whitespace.
+                    if (value.startsWith('"') && value.endsWith('"')) {
+                        value = value.slice(1, -1);
+                    }
+                    obj[headers[j]] = value.trim();
+                }
+                rows.push(obj);
+            }
+            return rows;
+        }
+
+        // --- EVENTS LOGIC ---
+        async function loadEvents() {
+            const loadingEl = document.getElementById('events-loading');
+            try {
+                const response = await fetch(EVENTS_CSV_URL);
+                if (!response.ok) throw new Error('Network response was not ok.');
+                const csvText = await response.text();
+                const data = parseCSV(csvText);
+
+                const events = data.map(row => ({
+                    title: row['Event Title'],
+                    date: row['Date'],
+                    description: row['Description'],
+                    imageUrl: row['Image URL']
+                })).filter(event => event.title);
+                
+                renderEvents(events);
+            } catch (error) {
+                console.error('Error fetching events:', error);
+                loadingEl.innerHTML = `<p class="text-red-500 font-semibold">Could not load events.</p><p class="text-slate-500 text-sm mt-1">Please ensure the Events sheet is published to the web as a CSV file.</p>`;
+            }
         }
         
         function renderEvents(events) {
             const gridEl = document.getElementById('events-grid');
             const loadingEl = document.getElementById('events-loading');
-            gridEl.innerHTML = ''; // Clear existing
+            gridEl.innerHTML = '';
             
             if (events.length === 0) {
                 loadingEl.innerHTML = '<p>No upcoming events found.</p>';
@@ -300,57 +331,43 @@
                             <h3 class="font-laila text-xl font-bold text-ugnt-blue mt-2">${event.title}</h3>
                             <p class="text-slate-600 mt-3 text-sm">${event.description}</p>
                         </div>
-                    </div>
-                `;
+                    </div>`;
                 gridEl.innerHTML += card;
             });
         }
 
         // --- DIRECTORY LOGIC ---
-        let allBusinesses = []; // To store the full list for filtering
+        let allBusinesses = [];
 
-        function loadDirectory() {
+        async function loadDirectory() {
             const loadingEl = document.getElementById('directory-loading');
+            try {
+                const response = await fetch(DIRECTORY_CSV_URL);
+                if (!response.ok) throw new Error('Network response was not ok.');
+                const csvText = await response.text();
+                const data = parseCSV(csvText);
 
-            if (DIRECTORY_SHEET_URL === 'YOUR_DIRECTORY_GOOGLE_SHEET_URL') {
-                loadingEl.innerHTML = `<p class="text-red-500">Please update the DIRECTORY_SHEET_URL in the script tag.</p>`;
-                const placeholderBusinesses = [
-                    { name: 'Gujarati Rasoi', owner: 'Asha Patel', contact: '972-555-1234', description: 'Authentic Gujarati thali and snacks.', website: 'https://example.com', category: 'Restaurant', reviewed: 'YES' },
-                    { name: 'DFW Tech Solutions', owner: 'Rohan Shah', contact: 'info@dfwtech.com', description: 'Managed IT services and consulting for small businesses.', website: 'https://example.com', category: 'IT Services', reviewed: 'YES' },
-                    { name: 'Garba Glamour Boutique', owner: 'Priya Mehta', contact: '469-555-5678', description: 'Traditional and modern attire for all festive occasions.', website: 'https://example.com', category: 'Retail', reviewed: 'YES' }
-                ];
-                allBusinesses = placeholderBusinesses;
+                const businesses = data.map(row => ({
+                    name: row['Business Name'],
+                    owner: row['Owner Name'],
+                    contact: row['Contact Info'],
+                    description: row['Description'],
+                    website: row['Website Link'],
+                    category: row['Category'],
+                    reviewed: row['Reviewed']
+                })).filter(biz => biz.name && biz.reviewed && biz.reviewed.trim().toUpperCase() === 'YES');
+                
+                allBusinesses = businesses;
                 setupDirectory(allBusinesses);
-                return;
+            } catch (error) {
+                console.error('Error fetching directory:', error);
+                loadingEl.innerHTML = `<p class="text-red-500 font-semibold">Could not load directory.</p><p class="text-slate-500 text-sm mt-1">Please ensure the Directory sheet is published to the web as a CSV file.</p>`;
             }
-
-            fetch(DIRECTORY_SHEET_URL)
-                .then(res => res.text())
-                .then(text => {
-                    const data = JSON.parse(text.substr(47).slice(0, -2));
-                    const businesses = data.table.rows.map(row => ({
-                        name: row.c[0]?.v,
-                        owner: row.c[1]?.v,
-                        contact: row.c[2]?.v,
-                        description: row.c[3]?.v,
-                        website: row.c[4]?.v,
-                        category: row.c[5]?.v,
-                        reviewed: row.c[6]?.v
-                    })).filter(biz => biz.name && biz.reviewed && biz.reviewed.trim().toUpperCase() === 'YES');
-                    
-                    allBusinesses = businesses;
-                    setupDirectory(allBusinesses);
-                })
-                .catch(error => {
-                    console.error('Error fetching directory:', error);
-                    loadingEl.innerHTML = `<p class="text-red-500">Could not load directory. Please check the sheet URL and permissions.</p>`;
-                });
         }
         
         function setupDirectory(businesses) {
             populateCategoryFilter(businesses);
             renderDirectory(businesses);
-             // Add event listeners for search and filter
             document.getElementById('directory-search').addEventListener('input', filterDirectory);
             document.getElementById('directory-filter').addEventListener('change', filterDirectory);
         }
@@ -359,6 +376,7 @@
             const filterEl = document.getElementById('directory-filter');
             const categories = [...new Set(businesses.map(b => b.category).filter(Boolean))];
             categories.sort();
+            filterEl.innerHTML = '<option value="">All Categories</option>';
             categories.forEach(category => {
                 const option = document.createElement('option');
                 option.value = category;
@@ -394,8 +412,7 @@
                             <p class="text-slate-500">${biz.contact}</p>
                         </div>
                         ${websiteLink}
-                    </div>
-                `;
+                    </div>`;
                 gridEl.innerHTML += card;
             });
         }
@@ -407,9 +424,9 @@
             const filteredBusinesses = allBusinesses.filter(biz => {
                 const matchesCategory = !selectedCategory || biz.category === selectedCategory;
                 const matchesSearch = !searchTerm || 
-                                      biz.name.toLowerCase().includes(searchTerm) ||
-                                      biz.category.toLowerCase().includes(searchTerm) ||
-                                      biz.description.toLowerCase().includes(searchTerm);
+                                      (biz.name && biz.name.toLowerCase().includes(searchTerm)) ||
+                                      (biz.category && biz.category.toLowerCase().includes(searchTerm)) ||
+                                      (biz.description && biz.description.toLowerCase().includes(searchTerm));
                 return matchesCategory && matchesSearch;
             });
             
