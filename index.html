@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>United Gujaratis of North Texas (UGNT)</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Laila for headings (Gujarati feel), Inter for body (modern) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Laila:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles & Tailwind Config -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, .font-laila {
+            font-family: 'Laila', serif;
+        }
+        /* Simple scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #fdba74; /* orange-300 */
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #fb923c; /* orange-400 */
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'ugnt-orange': '#F97316', // A vibrant orange
+                        'ugnt-blue': '#0F172A',   // A deep, professional blue
+                        'ugnt-gold': '#FBBF24',   // A warm gold accent
+                    },
+                    fontFamily: {
+                        'laila': ['Laila', 'serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="font-laila text-2xl font-bold text-ugnt-blue" onclick="showPage('home')">
+                UGNT
+            </a>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#" class="text-slate-600 hover:text-ugnt-orange transition duration-300" onclick="showPage('home')">Home</a>
+                <a href="#" class="text-slate-600 hover:text-ugnt-orange transition duration-300" onclick="showPage('events')">Events</a>
+                <a href="#" class="text-slate-600 hover:text-ugnt-orange transition duration-300" onclick="showPage('directory')">Directory</a>
+                <a href="#" class="bg-ugnt-orange text-white px-4 py-2 rounded-full hover:bg-orange-600 transition duration-300 shadow-md" onclick="showPage('contact')">Submit Business</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-ugnt-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
+            <a href="#" class="block text-slate-600 hover:text-ugnt-orange transition duration-300" onclick="showPage('home')">Home</a>
+            <a href="#" class="block text-slate-600 hover:text-ugnt-orange transition duration-300" onclick="showPage('events')">Events</a>
+            <a href="#" class="block text-slate-600 hover:text-ugnt-orange transition duration-300" onclick="showPage('directory')">Directory</a>
+            <a href="#" class="block bg-ugnt-orange text-white text-center mt-2 px-4 py-2 rounded-full hover:bg-orange-600 transition duration-300 shadow-md" onclick="showPage('contact')">Submit Business</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-8 md:py-12">
+
+        <!-- Home Page Content -->
+        <div id="home" class="page">
+            <!-- Hero Section -->
+            <section class="relative h-[60vh] rounded-2xl overflow-hidden flex items-center justify-center text-center text-white bg-ugnt-blue">
+                <div class="absolute inset-0 bg-black opacity-50 z-10"></div>
+                <!-- Background Image: Replace with a high-quality community photo -->
+                <img src="https://images.unsplash.com/photo-1593347679704-92e3bada6a3a?q=80&w=2670&auto=format&fit=crop" 
+                     onerror="this.onerror=null;this.src='https://placehold.co/1200x800/0F172A/FFFFFF?text=UGNT+Community';"
+                     alt="Gujarati cultural event" class="absolute inset-0 w-full h-full object-cover">
+                <div class="relative z-20 p-4">
+                    <h1 class="text-4xl md:text-6xl font-bold font-laila leading-tight">United Gujaratis of North Texas</h1>
+                    <p class="mt-4 text-lg md:text-xl max-w-2xl mx-auto">Connecting, celebrating, and strengthening the Gujarati community in the DFW Metroplex.</p>
+                </div>
+            </section>
+
+            <!-- About UGNT Section -->
+            <section class="py-16 md:py-24 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-ugnt-blue">Our Mission</h2>
+                <div class="max-w-3xl mx-auto mt-6">
+                    <p class="text-slate-600 text-lg">
+                        UGNT is dedicated to fostering a vibrant and supportive network for Gujaratis in North Texas. We aim to preserve our rich cultural heritage, promote community engagement through social and cultural events, and support the growth of local Gujarati-owned businesses. Join us in building a stronger community together!
+                    </p>
+                </div>
+            </section>
+        </div>
+
+        <!-- Events Page Content -->
+        <div id="events" class="page hidden">
+            <h2 class="text-3xl md:text-4xl font-bold text-ugnt-blue mb-8 text-center">Community Events</h2>
+            <div id="events-loading" class="text-center text-slate-500">
+                <p>Loading events...</p>
+            </div>
+            <div id="events-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Event cards will be inserted here by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Directory Page Content -->
+        <div id="directory" class="page hidden">
+            <h2 class="text-3xl md:text-4xl font-bold text-ugnt-blue mb-8 text-center">Business Directory</h2>
+            <!-- Search and Filter Controls -->
+            <div class="mb-8 p-6 bg-white rounded-xl shadow-md">
+                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <input type="text" id="directory-search" placeholder="Search by name, category..." class="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-ugnt-orange focus:border-transparent transition">
+                    <select id="directory-filter" class="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-ugnt-orange focus:border-transparent transition">
+                        <option value="">All Categories</option>
+                        <!-- Categories will be populated by JavaScript -->
+                    </select>
+                </div>
+            </div>
+            <div id="directory-loading" class="text-center text-slate-500">
+                <p>Loading directory...</p>
+            </div>
+            <div id="directory-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Directory cards will be inserted here by JavaScript -->
+            </div>
+            <div id="directory-no-results" class="hidden text-center text-slate-500 py-12">
+                <p>No businesses found matching your criteria.</p>
+            </div>
+        </div>
+
+        <!-- Contact/Submit Form Page Content -->
+        <div id="contact" class="page hidden">
+            <div class="max-w-2xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
+                <h2 class="text-3xl md:text-4xl font-bold text-ugnt-blue mb-2 text-center">Join Our Directory</h2>
+                <p class="text-center text-slate-500 mb-8">Submit your business details to be featured in our community directory. Submissions will be reviewed by an admin before appearing on the site.</p>
+                
+                <!-- IMPORTANT: Replace the action URL with your Google Form link or Web App URL -->
+                <form action="YOUR_GOOGLE_FORM_OR_WEB_APP_URL" method="POST" target="_blank" class="space-y-6">
+                    <div>
+                        <label for="business-name" class="block text-sm font-medium text-slate-700">Business Name</label>
+                        <input type="text" id="business-name" name="Business Name" required class="mt-1 block w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-ugnt-orange focus:border-transparent transition">
+                    </div>
+                    <div>
+                        <label for="owner-name" class="block text-sm font-medium text-slate-700">Owner Name</label>
+                        <input type="text" id="owner-name" name="Owner Name" required class="mt-1 block w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-ugnt-orange focus:border-transparent transition">
+                    </div>
+                    <div>
+                        <label for="contact-info" class="block text-sm font-medium text-slate-700">Contact Info (Phone or Email)</label>
+                        <input type="text" id="contact-info" name="Contact Info" required class="mt-1 block w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-ugnt-orange focus:border-transparent transition">
+                    </div>
+                     <div>
+                        <label for="description" class="block text-sm font-medium text-slate-700">Short Description</label>
+                        <textarea id="description" name="Description" rows="3" required class="mt-1 block w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-ugnt-orange focus:border-transparent transition"></textarea>
+                    </div>
+                    <div>
+                        <label for="website-link" class="block text-sm font-medium text-slate-700">Website Link (optional)</label>
+                        <input type="url" id="website-link" name="Website Link" placeholder="https://example.com" class="mt-1 block w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-ugnt-orange focus:border-transparent transition">
+                    </div>
+                    <div>
+                        <label for="category" class="block text-sm font-medium text-slate-700">Category</label>
+                        <input type="text" id="category" name="Category" required placeholder="e.g., Restaurant, IT Services, Retail" class="mt-1 block w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-ugnt-orange focus:border-transparent transition">
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="bg-ugnt-orange text-white px-8 py-3 rounded-full hover:bg-orange-600 transition duration-300 shadow-md font-bold text-lg">Submit for Review</button>
+                    </div>
+                </form>
+                 <p class="text-xs text-slate-400 mt-4 text-center">Note: Submitting this form will open a new tab to complete the submission via Google Forms. Your entry will be added to the directory after admin review.</p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-ugnt-blue text-white mt-16">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <div class="flex justify-center space-x-6 mb-4">
+                <!-- Replace with your actual social media links -->
+                <a href="#" class="hover:text-ugnt-gold transition duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.494v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
+                </a>
+                <a href="#" class="hover:text-ugnt-gold transition duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664-4.771 4.919-4.919 1.266-.058 1.644-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.059-1.281.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.441 1.441 1.441 1.441-.645 1.441-1.441-.645-1.44-1.441-1.44z"/></svg>
+                </a>
+            </div>
+            <p class="text-slate-400">&copy; <span id="copyright-year"></span> United Gujaratis of North Texas. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- CONFIGURATION ---
+        // IMPORTANT: Replace these URLs with your own published Google Sheet URLs.
+        // How to publish: In Google Sheets, go to File > Share > Publish to web.
+        // Select "Entire Document" and "Web page", then copy the link.
+        // Then, modify the link: replace '/pubhtml' with '/gviz/tq?tqx=out:json'
+        const EVENTS_SHEET_URL = 'YOUR_EVENTS_GOOGLE_SHEET_URL';
+        const DIRECTORY_SHEET_URL = 'YOUR_DIRECTORY_GOOGLE_SHEET_URL';
+        
+        // --- PAGE NAVIGATION ---
+        const pages = document.querySelectorAll('.page');
+        function showPage(pageId) {
+            pages.forEach(page => {
+                if (page.id === pageId) {
+                    page.classList.remove('hidden');
+                } else {
+                    page.classList.add('hidden');
+                }
+            });
+            window.scrollTo(0, 0); // Scroll to top on page change
+            // Close mobile menu on navigation
+            document.getElementById('mobile-menu').classList.add('hidden');
+        }
+
+        // --- MOBILE MENU TOGGLE ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // --- DYNAMIC DATA FETCHING ---
+        document.addEventListener('DOMContentLoaded', () => {
+            loadEvents();
+            loadDirectory();
+            document.getElementById('copyright-year').textContent = new Date().getFullYear();
+        });
+
+        // --- EVENTS LOGIC ---
+        function loadEvents() {
+            const loadingEl = document.getElementById('events-loading');
+            const gridEl = document.getElementById('events-grid');
+            
+            // Placeholder data for demonstration. Replace with actual fetch logic.
+            if (EVENTS_SHEET_URL === 'YOUR_EVENTS_GOOGLE_SHEET_URL') {
+                loadingEl.innerHTML = `<p class="text-red-500">Please update the EVENTS_SHEET_URL in the script tag.</p>`;
+                const placeholderEvents = [
+                    { title: 'Annual Navratri Garba', date: 'October 12, 2024', description: 'Join us for a night of vibrant music, dance, and celebration.', imageUrl: 'https://images.unsplash.com/photo-1604147551421-5b70a1a6b0c2?q=80&w=2574&auto=format&fit=crop' },
+                    { title: 'Diwali Gala Dinner', date: 'November 2, 2024', description: 'A festive evening with delicious food, cultural performances, and community awards.', imageUrl: 'https://images.unsplash.com/photo-1574109249790-da1c00c3556d?q=80&w=2670&auto=format&fit=crop' },
+                    { title: 'Summer Community Picnic', date: 'June 22, 2024', description: 'A fun-filled day at the park with games, food, and activities for all ages.', imageUrl: 'https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?q=80&w=2832&auto=format&fit=crop' }
+                ];
+                renderEvents(placeholderEvents);
+                return;
+            }
+
+            fetch(EVENTS_SHEET_URL)
+                .then(res => res.text())
+                .then(text => {
+                    const data = JSON.parse(text.substr(47).slice(0, -2));
+                    const events = data.table.rows.map(row => ({
+                        title: row.c[0]?.v,
+                        date: row.c[1]?.v,
+                        description: row.c[2]?.v,
+                        imageUrl: row.c[3]?.v
+                    })).filter(event => event.title); // Filter out empty rows
+                    
+                    renderEvents(events);
+                })
+                .catch(error => {
+                    console.error('Error fetching events:', error);
+                    loadingEl.innerHTML = `<p class="text-red-500">Could not load events. Please check the sheet URL and permissions.</p>`;
+                });
+        }
+        
+        function renderEvents(events) {
+            const gridEl = document.getElementById('events-grid');
+            const loadingEl = document.getElementById('events-loading');
+            gridEl.innerHTML = ''; // Clear existing
+            
+            if (events.length === 0) {
+                loadingEl.innerHTML = '<p>No upcoming events found.</p>';
+                return;
+            }
+            loadingEl.style.display = 'none';
+
+            events.forEach(event => {
+                const card = `
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="${event.imageUrl}" 
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x400/F97316/FFFFFF?text=Event';"
+                             alt="${event.title}" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <p class="text-sm text-ugnt-orange font-semibold">${event.date}</p>
+                            <h3 class="font-laila text-xl font-bold text-ugnt-blue mt-2">${event.title}</h3>
+                            <p class="text-slate-600 mt-3 text-sm">${event.description}</p>
+                        </div>
+                    </div>
+                `;
+                gridEl.innerHTML += card;
+            });
+        }
+
+        // --- DIRECTORY LOGIC ---
+        let allBusinesses = []; // To store the full list for filtering
+
+        function loadDirectory() {
+            const loadingEl = document.getElementById('directory-loading');
+
+            if (DIRECTORY_SHEET_URL === 'YOUR_DIRECTORY_GOOGLE_SHEET_URL') {
+                loadingEl.innerHTML = `<p class="text-red-500">Please update the DIRECTORY_SHEET_URL in the script tag.</p>`;
+                const placeholderBusinesses = [
+                    { name: 'Gujarati Rasoi', owner: 'Asha Patel', contact: '972-555-1234', description: 'Authentic Gujarati thali and snacks.', website: 'https://example.com', category: 'Restaurant', reviewed: 'YES' },
+                    { name: 'DFW Tech Solutions', owner: 'Rohan Shah', contact: 'info@dfwtech.com', description: 'Managed IT services and consulting for small businesses.', website: 'https://example.com', category: 'IT Services', reviewed: 'YES' },
+                    { name: 'Garba Glamour Boutique', owner: 'Priya Mehta', contact: '469-555-5678', description: 'Traditional and modern attire for all festive occasions.', website: 'https://example.com', category: 'Retail', reviewed: 'YES' }
+                ];
+                allBusinesses = placeholderBusinesses;
+                setupDirectory(allBusinesses);
+                return;
+            }
+
+            fetch(DIRECTORY_SHEET_URL)
+                .then(res => res.text())
+                .then(text => {
+                    const data = JSON.parse(text.substr(47).slice(0, -2));
+                    const businesses = data.table.rows.map(row => ({
+                        name: row.c[0]?.v,
+                        owner: row.c[1]?.v,
+                        contact: row.c[2]?.v,
+                        description: row.c[3]?.v,
+                        website: row.c[4]?.v,
+                        category: row.c[5]?.v,
+                        reviewed: row.c[6]?.v
+                    })).filter(biz => biz.name && biz.reviewed && biz.reviewed.trim().toUpperCase() === 'YES');
+                    
+                    allBusinesses = businesses;
+                    setupDirectory(allBusinesses);
+                })
+                .catch(error => {
+                    console.error('Error fetching directory:', error);
+                    loadingEl.innerHTML = `<p class="text-red-500">Could not load directory. Please check the sheet URL and permissions.</p>`;
+                });
+        }
+        
+        function setupDirectory(businesses) {
+            populateCategoryFilter(businesses);
+            renderDirectory(businesses);
+             // Add event listeners for search and filter
+            document.getElementById('directory-search').addEventListener('input', filterDirectory);
+            document.getElementById('directory-filter').addEventListener('change', filterDirectory);
+        }
+
+        function populateCategoryFilter(businesses) {
+            const filterEl = document.getElementById('directory-filter');
+            const categories = [...new Set(businesses.map(b => b.category).filter(Boolean))];
+            categories.sort();
+            categories.forEach(category => {
+                const option = document.createElement('option');
+                option.value = category;
+                option.textContent = category;
+                filterEl.appendChild(option);
+            });
+        }
+        
+        function renderDirectory(businesses) {
+            const gridEl = document.getElementById('directory-grid');
+            const loadingEl = document.getElementById('directory-loading');
+            const noResultsEl = document.getElementById('directory-no-results');
+            gridEl.innerHTML = '';
+            
+            if (businesses.length === 0) {
+                noResultsEl.classList.remove('hidden');
+                loadingEl.style.display = 'none';
+                return;
+            }
+            
+            noResultsEl.classList.add('hidden');
+            loadingEl.style.display = 'none';
+
+            businesses.forEach(biz => {
+                const websiteLink = biz.website ? `<a href="${biz.website}" target="_blank" rel="noopener noreferrer" class="inline-block mt-4 bg-orange-100 text-ugnt-orange px-4 py-2 rounded-full text-sm font-semibold hover:bg-orange-200 transition">Visit Website</a>` : '';
+                const card = `
+                    <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col">
+                        <h3 class="font-laila text-xl font-bold text-ugnt-blue">${biz.name}</h3>
+                        <p class="text-sm text-slate-500 mb-2">Category: ${biz.category}</p>
+                        <p class="text-slate-600 mt-2 flex-grow">${biz.description}</p>
+                        <div class="mt-4 pt-4 border-t border-slate-200">
+                            <p class="font-semibold text-slate-700">${biz.owner}</p>
+                            <p class="text-slate-500">${biz.contact}</p>
+                        </div>
+                        ${websiteLink}
+                    </div>
+                `;
+                gridEl.innerHTML += card;
+            });
+        }
+        
+        function filterDirectory() {
+            const searchTerm = document.getElementById('directory-search').value.toLowerCase();
+            const selectedCategory = document.getElementById('directory-filter').value;
+            
+            const filteredBusinesses = allBusinesses.filter(biz => {
+                const matchesCategory = !selectedCategory || biz.category === selectedCategory;
+                const matchesSearch = !searchTerm || 
+                                      biz.name.toLowerCase().includes(searchTerm) ||
+                                      biz.category.toLowerCase().includes(searchTerm) ||
+                                      biz.description.toLowerCase().includes(searchTerm);
+                return matchesCategory && matchesSearch;
+            });
+            
+            renderDirectory(filteredBusinesses);
+        }
+
+    </script>
+</body>
+</html>
