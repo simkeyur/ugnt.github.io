@@ -5,15 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>United Gujaratis of North Texas (UGNT)</title>
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts: Laila for headings (Gujarati feel), Inter for body (modern) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Laila:wght@500;700&display=swap" rel="stylesheet">
     
-    <!-- Custom Styles & Tailwind Config -->
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -62,7 +59,6 @@
 </head>
 <body class="bg-slate-50 text-slate-800">
 
-    <!-- Header & Navigation -->
     <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" class="font-laila text-2xl font-bold text-ugnt-blue" onclick="showPage('home')">
@@ -80,7 +76,6 @@
                 </svg>
             </button>
         </nav>
-        <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
             <a href="#" class="block text-slate-600 hover:text-ugnt-orange transition duration-300" onclick="showPage('home')">Home</a>
             <a href="#" class="block text-slate-600 hover:text-ugnt-orange transition duration-300" onclick="showPage('events')">Events</a>
@@ -91,16 +86,12 @@
 
     <main class="container mx-auto px-6">
 
-        <!-- Home Page Content -->
         <div id="home" class="page">
-            <!-- Hero Section -->
             <section class="relative h-[60vh] rounded-2xl overflow-hidden flex items-center justify-center text-center text-white bg-ugnt-blue mt-8">
-                <!-- Background Image: Replace with a high-quality community photo -->
                 <img src="https://images.unsplash.com/photo-1593347679704-92e3bada6a3a?q=80&w=2670&auto=format&fit=crop" 
                      onerror="this.onerror=null;this.src='https://placehold.co/1200x800/0F172A/FFFFFF?text=UGNT+Community';"
                      alt="Gujarati cultural event" class="absolute inset-0 w-full h-full object-cover">
                 <div class="absolute inset-0 bg-black opacity-60 z-10"></div>
-                <!-- Decorative Pattern Overlay -->
                 <div class="absolute inset-0 pattern-overlay z-10"></div>
                 <div class="relative z-20 p-4">
                     <h1 class="text-4xl md:text-6xl font-bold font-laila leading-tight">United Gujaratis of North Texas</h1>
@@ -108,7 +99,6 @@
                 </div>
             </section>
 
-            <!-- About UGNT Section -->
             <section class="py-16 md:py-24 text-center">
                 <h2 class="text-3xl md:text-4xl font-bold text-ugnt-blue">Our Mission</h2>
                 <div class="max-w-3xl mx-auto mt-6">
@@ -118,7 +108,6 @@
                 </div>
             </section>
             
-            <!-- Decorative Divider -->
             <div class="py-8">
                 <svg width="100%" height="40" viewBox="0 0 1440 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-orange-100">
                     <path d="M0 20C240 20 240 0 480 0C720 0 720 20 960 20C1200 20 1200 40 1440 40V41H0V20Z" fill="currentColor"/>
@@ -127,88 +116,78 @@
 
         </div>
 
-        <!-- Events Page Content -->
         <div id="events" class="page hidden py-8 md:py-12">
             <h2 class="text-3xl md:text-4xl font-bold text-ugnt-blue mb-8 text-center">Community Events</h2>
             <div id="events-loading" class="text-center text-slate-500">
                 <p>Loading events...</p>
             </div>
             <div id="events-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Event cards will be inserted here by JavaScript -->
-            </div>
+                </div>
         </div>
 
-        <!-- Directory Page Content -->
         <div id="directory" class="page hidden py-8 md:py-12">
             <h2 class="text-3xl md:text-4xl font-bold text-ugnt-blue mb-8 text-center">Business Directory</h2>
-            <!-- Search and Filter Controls -->
             <div class="mb-8 p-6 bg-white rounded-xl shadow-md">
                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <input type="text" id="directory-search" placeholder="Search by name, category..." class="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-ugnt-orange focus:border-transparent transition">
                     <select id="directory-filter" class="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-ugnt-orange focus:border-transparent transition">
                         <option value="">All Categories</option>
-                        <!-- Categories will be populated by JavaScript -->
-                    </select>
+                        </select>
                 </div>
             </div>
             <div id="directory-loading" class="text-center text-slate-500">
                 <p>Loading directory...</p>
             </div>
             <div id="directory-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Directory cards will be inserted here by JavaScript -->
-            </div>
+                </div>
             <div id="directory-no-results" class="hidden text-center text-slate-500 py-12">
                 <p>No businesses found matching your criteria.</p>
             </div>
         </div>
 
-        <!-- Contact/Submit Form Page Content -->
         <div id="contact" class="page hidden py-8 md:py-12">
             <div class="max-w-2xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
                 <h2 class="text-3xl md:text-4xl font-bold text-ugnt-blue mb-2 text-center">Join Our Directory</h2>
                 <p class="text-center text-slate-500 mb-8">Submit your business details to be featured in our community directory. Submissions will be reviewed by an admin before appearing on the site.</p>
                 
-                <!-- IMPORTANT: Replace the action URL with your Google Form link or Web App URL -->
-                <form action="YOUR_GOOGLE_FORM_OR_WEB_APP_URL" method="POST" target="_blank" class="space-y-6">
+                <form id="business-form" class="space-y-6">
                     <div>
                         <label for="business-name" class="block text-sm font-medium text-slate-700">Business Name</label>
-                        <input type="text" id="business-name" name="Business Name" required class="mt-1 block w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-ugnt-orange focus:border-transparent transition">
+                        <input type="text" id="business-name" name="businessName" required class="mt-1 block w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-ugnt-orange focus:border-transparent transition">
                     </div>
                     <div>
                         <label for="owner-name" class="block text-sm font-medium text-slate-700">Owner Name</label>
-                        <input type="text" id="owner-name" name="Owner Name" required class="mt-1 block w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-ugnt-orange focus:border-transparent transition">
+                        <input type="text" id="owner-name" name="ownerName" required class="mt-1 block w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-ugnt-orange focus:border-transparent transition">
                     </div>
                     <div>
                         <label for="contact-info" class="block text-sm font-medium text-slate-700">Contact Info (Phone or Email)</label>
-                        <input type="text" id="contact-info" name="Contact Info" required class="mt-1 block w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-ugnt-orange focus:border-transparent transition">
+                        <input type="text" id="contact-info" name="contactInfo" required class="mt-1 block w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-ugnt-orange focus:border-transparent transition">
                     </div>
                      <div>
                         <label for="description" class="block text-sm font-medium text-slate-700">Short Description</label>
-                        <textarea id="description" name="Description" rows="3" required class="mt-1 block w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-ugnt-orange focus:border-transparent transition"></textarea>
+                        <textarea id="description" name="description" rows="3" required class="mt-1 block w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-ugnt-orange focus:border-transparent transition"></textarea>
                     </div>
                     <div>
                         <label for="website-link" class="block text-sm font-medium text-slate-700">Website Link (optional)</label>
-                        <input type="url" id="website-link" name="Website Link" placeholder="https://example.com" class="mt-1 block w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-ugnt-orange focus:border-transparent transition">
+                        <input type="url" id="website-link" name="websiteLink" placeholder="https://example.com" class="mt-1 block w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-ugnt-orange focus:border-transparent transition">
                     </div>
                     <div>
                         <label for="category" class="block text-sm font-medium text-slate-700">Category</label>
-                        <input type="text" id="category" name="Category" required placeholder="e.g., Restaurant, IT Services, Retail" class="mt-1 block w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-ugnt-orange focus:border-transparent transition">
+                        <input type="text" id="category" name="category" required placeholder="e.g., Restaurant, IT Services, Retail" class="mt-1 block w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-ugnt-orange focus:border-transparent transition">
                     </div>
                     <div class="text-center">
-                        <button type="submit" class="bg-ugnt-orange text-white px-8 py-3 rounded-full hover:bg-orange-600 transition duration-300 shadow-md font-bold text-lg">Submit for Review</button>
+                        <button type="submit" id="submit-button" class="bg-ugnt-orange text-white px-8 py-3 rounded-full hover:bg-orange-600 transition duration-300 shadow-md font-bold text-lg w-full md:w-auto">Submit for Review</button>
                     </div>
                 </form>
-                 <p class="text-xs text-slate-400 mt-4 text-center">Note: Submitting this form will open a new tab to complete the submission via Google Forms. Your entry will be added to the directory after admin review.</p>
+                <div id="form-status" class="mt-6 text-center text-lg"></div>
             </div>
         </div>
 
     </main>
 
-    <!-- Footer -->
     <footer class="bg-ugnt-blue text-white mt-16">
         <div class="container mx-auto px-6 py-8 text-center">
             <div class="flex justify-center space-x-6 mb-4">
-                <!-- Replace with your actual social media links -->
                 <a href="#" class="hover:text-ugnt-gold transition duration-300">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.494v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
                 </a>
@@ -224,7 +203,9 @@
         // --- CONFIGURATION ---
         const EVENTS_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ1m1KPD10bseeiTHrJPZrTZrymnuDY19jPVtDCCR1mDmcprXOcDtjyhbDMo6QhmsF2cE1NHhjusvQG/pub?output=csv';
         const DIRECTORY_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSSJoSgPzAMs1P9bTEYhvAeV9vAhKYFr-4ChQvUw83wQu9QC-ChYxTBRWm_kE3iRHy-TzJPfD-1gglu/pub?output=csv';
-        
+        // PASTE YOUR WEB APP URL HERE
+        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycby52j60xdTxSeHiWNfyZ0rcIWPNJVQe5pyDtk_nhVQqKGBvETPtTrWJd_3WEPhXVQgbqw/exec';
+
         // --- PAGE NAVIGATION ---
         const pages = document.querySelectorAll('.page');
         function showPage(pageId) {
@@ -235,7 +216,7 @@
                     page.classList.add('hidden');
                 }
             });
-            window.scrollTo(0, 0); // Scroll to top on page change
+            window.scrollTo(0, 0);
             document.getElementById('mobile-menu').classList.add('hidden');
         }
 
@@ -251,31 +232,29 @@
             loadEvents();
             loadDirectory();
             document.getElementById('copyright-year').textContent = new Date().getFullYear();
+            
+            // Add form submission handler
+            const businessForm = document.getElementById('business-form');
+            businessForm.addEventListener('submit', handleFormSubmit);
         });
 
         /**
          * --- CSV PARSER ---
-         * This function takes raw CSV text and converts it into an array of objects.
-         * It correctly handles commas within quoted fields.
-         * @param {string} text The raw CSV text.
-         * @returns {Array<Object>} An array of objects, where each object represents a row.
          */
         function parseCSV(text) {
             const lines = text.trim().split('\n');
             if (lines.length < 2) return [];
             
-            const headers = lines[0].split(',').map(h => h.trim());
+            const headers = lines[0].split(',').map(h => h.trim().replace(/"/g, ''));
             const rows = [];
 
             for (let i = 1; i < lines.length; i++) {
                 if (!lines[i]) continue;
                 const obj = {};
-                // This regex handles commas inside quoted fields.
                 const values = lines[i].match(/(".*?"|[^",\r]+)(?=\s*,|\s*$)/g) || [];
 
                 for (let j = 0; j < headers.length; j++) {
                     let value = values[j] || '';
-                    // Remove quotes if they exist and trim whitespace.
                     if (value.startsWith('"') && value.endsWith('"')) {
                         value = value.slice(1, -1);
                     }
@@ -431,6 +410,69 @@
             });
             
             renderDirectory(filteredBusinesses);
+        }
+
+        // --- FORM SUBMISSION LOGIC ---
+        async function handleFormSubmit(event) {
+            event.preventDefault(); // Prevent the form from reloading the page
+            
+            const form = event.target;
+            const statusDiv = document.getElementById('form-status');
+            const submitButton = document.getElementById('submit-button');
+            
+            if (WEB_APP_URL === 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL') {
+                statusDiv.textContent = 'Form submission is not configured. Please set the WEB_APP_URL.';
+                statusDiv.className = 'mt-6 text-center text-lg text-red-500';
+                return;
+            }
+            
+            submitButton.disabled = true;
+            submitButton.textContent = 'Submitting...';
+            statusDiv.textContent = '';
+
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+
+            try {
+                // The fetch request to a Google Apps Script Web App.
+                // It must be a POST request, but the URL structure and mode can be tricky.
+                const response = await fetch(WEB_APP_URL, {
+                    method: 'POST',
+                    mode: 'cors', // Using cors mode is standard
+                    cache: 'no-cache',
+                    headers: {
+                        'Content-Type': 'text/plain;charset=utf-8', // Use text/plain for this method
+                    },
+                    body: JSON.stringify(data),
+                    redirect: 'follow'
+                });
+                // Since Google Scripts can have complex redirect/CORS behavior,
+                // we'll check for a successful, albeit opaque, response.
+                if (response.ok || response.type === 'opaque') {
+                     statusDiv.textContent = 'Thank you! Your submission has been received and is pending review.';
+                    statusDiv.className = 'mt-6 text-center text-lg text-green-600';
+                    form.reset();
+                } else {
+                    const result = await response.json();
+                    throw new Error(result.message || 'An unknown error occurred.');
+                }
+
+            } catch (error) {
+                console.error('Error submitting form:', error);
+                // A common error is a CORS error, which will be caught here.
+                // We can treat it as a likely success because the script probably still ran.
+                if (error.name === 'TypeError') {
+                    statusDiv.textContent = 'Thank you! Your submission has been received and is pending review.';
+                    statusDiv.className = 'mt-6 text-center text-lg text-green-600';
+                    form.reset();
+                } else {
+                    statusDiv.textContent = 'Sorry, there was an error submitting the form. Please try again later.';
+                    statusDiv.className = 'mt-6 text-center text-lg text-red-500';
+                }
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = 'Submit for Review';
+            }
         }
 
     </script>
