@@ -82,11 +82,11 @@
     <div class="side-pattern left-0"></div>
     <div class="side-pattern right-0"></div>
 
-    <header class="bg-ugnt-bg/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
         <nav class="container mx-auto px-6 py-2 flex justify-between items-center">
             <a href="#" class="flex-shrink-0" onclick="showPage('home')">
                 <img src="ugnt-logo.png" 
-                     onerror="this.onerror=null;this.src='https://placehold.co/100x100/FFF7ED/0F172A?text=UGNT';"
+                     onerror="this.onerror=null;this.src='https://placehold.co/100x100/FFFFFF/0F172A?text=UGNT';"
                      alt="UGNT Logo" class="h-16 w-16">
             </a>
             <div class="hidden md:flex space-x-8 items-center">
@@ -101,7 +101,7 @@
                 </svg>
             </button>
         </nav>
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2 bg-white">
             <a href="#" class="block text-slate-600 hover:text-ugnt-orange transition duration-300" onclick="showPage('home')">Home</a>
             <a href="#" class="block text-slate-600 hover:text-ugnt-orange transition duration-300" onclick="showPage('events')">Events</a>
             <a href="#" class="block text-slate-600 hover:text-ugnt-orange transition duration-300" onclick="showPage('directory')">Directory</a>
@@ -113,7 +113,7 @@
 
         <div id="home" class="page">
             <section class="relative h-[60vh] rounded-2xl overflow-hidden flex items-center justify-center text-center text-white bg-ugnt-blue mt-8">
-                <img src="https://images.unsplash.com/photo-1593347679704-92e3bada6a3a?q=80&w=2670&auto=format&fit=crop" 
+                <img src="https://images.unsplash.com/photo-1667382712953-3b5370a71224?q=80&w=2574&auto=format&fit=crop" 
                      onerror="this.onerror=null;this.src='https://placehold.co/1200x800/0F172A/FFFFFF?text=UGNT+Community';"
                      alt="Gujarati cultural event" class="absolute inset-0 w-full h-full object-cover">
                 <div class="absolute inset-0 bg-black opacity-60 z-10"></div>
@@ -235,7 +235,6 @@
         // --- CONFIGURATION ---
         const EVENTS_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ1m1KPD10bseeiTHrJPZrTZrymnuDY19jPVtDCCR1mDmcprXOcDtjyhbDMo6QhmsF2cE1NHhjusvQG/pub?output=csv';
         const DIRECTORY_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSSJoSgPzAMs1P9bTEYhvAeV9vAhKYFr-4ChQvUw83wQu9QC-ChYxTBRWm_kE3iRHy-TzJPfD-1gglu/pub?output=csv';
-        // PASTE YOUR WEB APP URL HERE
         const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycby52j60xdTxSeHiWNfyZ0rcIWPNJVQe5pyDtk_nhVQqKGBvETPtTrWJd_3WEPhXVQgbqw/exec';
 
         // --- PAGE NAVIGATION ---
@@ -265,7 +264,6 @@
             loadDirectory();
             document.getElementById('copyright-year').textContent = new Date().getFullYear();
             
-            // Add form submission handler
             const businessForm = document.getElementById('business-form');
             businessForm.addEventListener('submit', handleFormSubmit);
         });
@@ -466,7 +464,6 @@
             const data = Object.fromEntries(formData.entries());
 
             try {
-                // The fetch request to a Google Apps Script Web App.
                 const response = await fetch(WEB_APP_URL, {
                     method: 'POST',
                     mode: 'cors', 
@@ -478,8 +475,6 @@
                     redirect: 'follow'
                 });
 
-                // Since Google Scripts can have complex redirect/CORS behavior,
-                // we'll check for a successful, albeit opaque, response.
                 if (response.ok || response.type === 'opaque') {
                      statusDiv.textContent = 'Thank you! Your submission has been received and is pending review.';
                     statusDiv.className = 'mt-6 text-center text-lg text-green-600';
@@ -491,8 +486,6 @@
 
             } catch (error) {
                 console.error('Error submitting form:', error);
-                // A common error is a CORS error, which will be caught here.
-                // We can treat it as a likely success because the script probably still ran.
                 if (error.name === 'TypeError') {
                     statusDiv.textContent = 'Thank you! Your submission has been received and is pending review.';
                     statusDiv.className = 'mt-6 text-center text-lg text-green-600';
