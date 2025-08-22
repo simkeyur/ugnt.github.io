@@ -14,6 +14,7 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
+            position: relative;
         }
         h1, h2, h3, .font-laila {
             font-family: 'Laila', serif;
@@ -38,6 +39,23 @@
             background-size: 1rem 1rem;
             opacity: 0.5;
         }
+        
+        /* Decorative side patterns */
+        .side-pattern {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            width: 150px; /* Adjust width as needed */
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23FFF7ED"/><g fill="%23FB923C" fill-opacity="0.1"><path d="M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm44 44c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm44-44c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zM11 62c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7z"/></g></svg>');
+            background-repeat: repeat;
+            z-index: -1;
+        }
+        
+        @media (max-width: 1280px) {
+            .side-pattern {
+                display: none;
+            }
+        }
     </style>
     <script>
         tailwind.config = {
@@ -47,6 +65,7 @@
                         'ugnt-orange': '#F97316', // A vibrant orange
                         'ugnt-blue': '#0F172A',   // A deep, professional blue
                         'ugnt-gold': '#FBBF24',   // A warm gold accent
+                        'ugnt-bg': '#FFF7ED',    // A warm, off-white background
                     },
                     fontFamily: {
                         'laila': ['Laila', 'serif'],
@@ -57,12 +76,18 @@
         }
     </script>
 </head>
-<body class="bg-slate-50 text-slate-800">
+<body class="bg-ugnt-bg text-slate-800">
 
-    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="font-laila text-2xl font-bold text-ugnt-blue" onclick="showPage('home')">
-                UGNT
+    <!-- Decorative side patterns -->
+    <div class="side-pattern left-0"></div>
+    <div class="side-pattern right-0"></div>
+
+    <header class="bg-ugnt-bg/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-2 flex justify-between items-center">
+            <a href="#" class="flex-shrink-0" onclick="showPage('home')">
+                <img src="ugnt-logo.png" 
+                     onerror="this.onerror=null;this.src='https://placehold.co/100x100/FFF7ED/0F172A?text=UGNT';"
+                     alt="UGNT Logo" class="h-16 w-16">
             </a>
             <div class="hidden md:flex space-x-8 items-center">
                 <a href="#" class="text-slate-600 hover:text-ugnt-orange transition duration-300" onclick="showPage('home')">Home</a>
@@ -185,8 +210,15 @@
 
     </main>
 
-    <footer class="bg-ugnt-blue text-white mt-16">
-        <div class="container mx-auto px-6 py-8 text-center">
+    <footer class="bg-ugnt-blue text-white mt-16 pt-12 relative">
+        <div class="absolute top-0 left-0 right-0 -mt-px">
+            <svg width="100%" height="60" viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                <path d="M0 60V0C480 20 960 20 1440 0V60H0Z" fill="#FB923C" fill-opacity="0.2"></path>
+                <path d="M0 60V15C480 35 960 35 1440 15V60H0Z" fill="#FB923C" fill-opacity="0.3"></path>
+                <path d="M0 60V30C480 50 960 50 1440 30V60H0Z" fill="#FB923C" fill-opacity="0.4"></path>
+            </svg>
+        </div>
+        <div class="container mx-auto px-6 py-8 text-center relative z-10">
             <div class="flex justify-center space-x-6 mb-4">
                 <a href="#" class="hover:text-ugnt-gold transition duration-300">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.494v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
@@ -435,17 +467,17 @@
 
             try {
                 // The fetch request to a Google Apps Script Web App.
-                // It must be a POST request, but the URL structure and mode can be tricky.
                 const response = await fetch(WEB_APP_URL, {
                     method: 'POST',
-                    mode: 'cors', // Using cors mode is standard
+                    mode: 'cors', 
                     cache: 'no-cache',
                     headers: {
-                        'Content-Type': 'text/plain;charset=utf-8', // Use text/plain for this method
+                        'Content-Type': 'text/plain;charset=utf-8', 
                     },
                     body: JSON.stringify(data),
                     redirect: 'follow'
                 });
+
                 // Since Google Scripts can have complex redirect/CORS behavior,
                 // we'll check for a successful, albeit opaque, response.
                 if (response.ok || response.type === 'opaque') {
