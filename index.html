@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>United Gujaratis of North Texas (UGNT)</title>
+    <title>UGNT Noble</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -24,46 +24,20 @@
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #f1f1f1;
+            background: #1F2937; /* slate-800 */
         }
         ::-webkit-scrollbar-thumb {
-            background: #fdba74; /* orange-300 */
+            background: #14B8A6; /* teal-500 */
             border-radius: 10px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #fb923c; /* orange-400 */
+            background: #5EEAD4; /* teal-300 */
         }
         /* Style for the decorative pattern overlay */
         .pattern-overlay {
             background-image: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-            background-size: 1rem 1rem;
-            opacity: 0.5;
-        }
-        
-        /* Decorative side patterns */
-        .side-pattern {
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            width: 150px; /* Adjust width as needed */
-            background-image: url('data:image/svg+xml,%3csvg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80"%3e%3crect width="80" height="80" fill="%23FFF7ED"/%3e%3cg fill="%23F97316"%3e%3ccircle cx="20" cy="20" r="2"/%3e%3ccircle cx="60" cy="20" r="2"/%3e%3ccircle cx="20" cy="60" r="2"/%3e%3ccircle cx="60" cy="60" r="2"/%3e%3ccircle cx="40" cy="40" r="6" fill-opacity="0.3"/%3e%3c/g%3e%3c/svg%3e');
-            background-repeat: repeat;
-            z-index: -1;
-            opacity: 0.6;
-        }
-        
-        @media (max-width: 1280px) {
-            .side-pattern {
-                display: none;
-            }
-        }
-        .footer-pattern {
-            position: absolute;
-            inset: 0;
-            background-image: url('data:image/svg+xml,%3csvg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80"%3e%3crect width="80" height="80" fill="%230F172A"/%3e%3cg fill="%23F97316"%3e%3ccircle cx="20" cy="20" r="2"/%3e%3ccircle cx="60" cy="20" r="2"/%3e%3ccircle cx="20" cy="60" r="2"/%3e%3ccircle cx="60" cy="60" r="2"/%3e%3ccircle cx="40" cy="40" r="6" fill-opacity="0.3"/%3e%3c/g%3e%3c/svg%3e');
-            background-size: 40px 40px;
-            opacity: 0.1;
-            z-index: 0;
+            background-size: 1.5rem 1.5rem;
+            opacity: 0.2;
         }
     </style>
     <script>
@@ -71,10 +45,12 @@
             theme: {
                 extend: {
                     colors: {
-                        'ugnt-orange': '#F97316', // A vibrant orange
-                        'ugnt-blue': '#0F172A',   // A deep, professional blue
-                        'ugnt-gold': '#FBBF24',   // A warm gold accent
-                        'ugnt-bg': '#FFF7ED',    // A warm, off-white background
+                        'noble-background': '#1F2937', // slate-800
+                        'noble-surface': '#334155',    // slate-700
+                        'noble-accent': '#FBBF24',     // amber-400
+                        'noble-accent-light': '#FCD34D', // amber-300
+                        'noble-text': '#E5E7EB',       // slate-200
+                        'noble-text-muted': '#9CA3AF', // slate-400
                     },
                     fontFamily: {
                         'laila': ['Laila', 'serif'],
@@ -85,132 +61,120 @@
         }
     </script>
 </head>
-<body class="bg-ugnt-bg text-slate-800">
+<body class="bg-gradient-to-br from-slate-900 to-slate-800 text-noble-text">
+    <div class="fixed inset-0 bg-[url('https://www.transparenttextures.com/patterns/subtle-carbon.png')] opacity-5"></div>
 
-    <!-- Decorative side patterns -->
-    <div class="side-pattern left-0"></div>
-    <div class="side-pattern right-0"></div>
-
-    <header class="bg-white sticky top-0 z-50 shadow-sm">
+    <header class="bg-slate-800/70 backdrop-blur-lg sticky top-0 z-50 shadow-lg shadow-slate-900/30 border-b border-slate-700/50">
         <nav class="container mx-auto px-6 py-2 flex justify-between items-center">
-            <a href="#" class="flex-shrink-0" onclick="showPage('home')">
-                <img src="ugnt-logo.png" 
-                     onerror="this.onerror=null;this.src='https://placehold.co/100x100/FFFFFF/0F172A?text=UGNT';"
-                     alt="UGNT Logo" class="h-16 w-16">
+            <a href="#" class="flex-shrink-0" onclick="showPage('directory')">
+                <img src="https://i.ibb.co/3k12m3S/ugnt-logo-noble.png"
+                     onerror="this.onerror=null;this.src='https://placehold.co/100x100/334155/FFFFFF?text=UGNT';"
+                     alt="UGNT Noble Logo" class="h-16 w-16">
             </a>
             <div class="hidden md:flex space-x-8 items-center">
-                <a href="#" class="text-slate-600 hover:text-ugnt-orange transition duration-300" onclick="showPage('home')">Home</a>
-                <a href="#" class="text-slate-600 hover:text-ugnt-orange transition duration-300" onclick="showPage('events')">Events</a>
-                <a href="#" class="text-slate-600 hover:text-ugnt-orange transition duration-300" onclick="showPage('directory')">Directory</a>
-                <a href="#" class="bg-ugnt-orange text-white px-4 py-2 rounded-full hover:bg-orange-600 transition duration-300 shadow-md" onclick="showPage('contact')">Submit Business</a>
+                <a href="#" class="text-noble-text hover:text-noble-accent transition duration-300 nav-link" onclick="showPage('events')">Events</a>
+                <a href="#" class="text-noble-accent font-bold transition duration-300 nav-link" onclick="showPage('directory')">Directory</a>
+                <a href="#" class="text-slate-900 bg-gradient-to-tr from-noble-accent to-noble-accent-light font-bold px-5 py-2 rounded-full hover:opacity-90 transition-opacity duration-300 shadow-lg" onclick="showPage('contact')">Submit Business</a>
             </div>
             <button id="mobile-menu-button" class="md:hidden">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-ugnt-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-noble-text" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
                 </svg>
             </button>
         </nav>
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2 bg-white">
-            <a href="#" class="block text-slate-600 hover:text-ugnt-orange transition duration-300" onclick="showPage('home')">Home</a>
-            <a href="#" class="block text-slate-600 hover:text-ugnt-orange transition duration-300" onclick="showPage('events')">Events</a>
-            <a href="#" class="block text-slate-600 hover:text-ugnt-orange transition duration-300" onclick="showPage('directory')">Directory</a>
-            <a href="#" class="block bg-ugnt-orange text-white text-center mt-2 px-4 py-2 rounded-full hover:bg-orange-600 transition duration-300 shadow-md" onclick="showPage('contact')">Submit Business</a>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2 bg-slate-800/95">
+            <a href="#" class="block text-noble-text hover:text-noble-accent transition duration-300" onclick="showPage('events')">Events</a>
+            <a href="#" class="block text-noble-text hover:text-noble-accent transition duration-300" onclick="showPage('directory')">Directory</a>
+            <a href="#" class="block text-slate-900 bg-gradient-to-tr from-noble-accent to-noble-accent-light font-bold text-center mt-2 px-4 py-2 rounded-full hover:opacity-90 transition-opacity duration-300 shadow-md" onclick="showPage('contact')">Submit Business</a>
         </div>
     </header>
 
     <main class="container mx-auto px-6">
 
-        <div id="home" class="page">
-            <section class="relative h-[60vh] rounded-2xl overflow-hidden flex items-center justify-center text-center text-white bg-ugnt-blue mt-8">
-                <img src="https://images.unsplash.com/photo-1553334490-011441d86dbb?fm=jpg&q=60&w=3000"
-                     onerror="this.onerror=null;this.src='https://placehold.co/1200x800/0F172A/FFFFFF?text=UGNT+Community';"
-                     alt="Gujarati cultural event" class="absolute inset-0 w-full h-full object-cover">
-                <div class="absolute inset-0 bg-black opacity-60 z-10"></div>
+        <div id="home" class="page hidden">
+            <section class="relative h-[60vh] rounded-2xl overflow-hidden flex items-center justify-center text-center text-white bg-noble-surface mt-8">
+                <img src="https://images.unsplash.com/photo-1543286386-713bdd548da4?q=80&w=3270&auto=format&fit=crop"
+                     onerror="this.onerror=null;this.src='https://placehold.co/1200x800/334155/FFFFFF?text=Community';"
+                     alt="Community connections" class="absolute inset-0 w-full h-full object-cover">
+                <div class="absolute inset-0 bg-slate-900 opacity-70 z-10"></div>
                 <div class="absolute inset-0 pattern-overlay z-10"></div>
                 <div class="relative z-20 p-4">
-                    <h1 class="text-4xl md:text-6xl font-bold font-laila leading-tight">United Gujaratis of North Texas</h1>
-                    <p class="mt-4 text-lg md:text-xl max-w-2xl mx-auto">Connecting, celebrating, and strengthening the Gujarati community in the DFW Metroplex.</p>
+                    <h1 class="text-4xl md:text-6xl font-bold font-laila leading-tight">UGNT Noble</h1>
+                    <p class="mt-4 text-lg md:text-xl max-w-2xl mx-auto text-noble-text">A premier digital directory and community hub.</p>
                 </div>
             </section>
 
             <section class="py-16 md:py-24 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-ugnt-blue">Our Mission</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-noble-text">Our Mission</h2>
                 <div class="max-w-3xl mx-auto mt-6">
-                    <p class="text-slate-600 text-lg">
-                        UGNT is dedicated to fostering a vibrant and supportive network for Gujaratis in North Texas. We aim to preserve our rich cultural heritage, promote community engagement through social and cultural events, and support the growth of local Gujarati-owned businesses. Join us in building a stronger community together!
+                    <p class="text-noble-text-muted text-lg">
+                        Our mission is to foster a vibrant, supportive, and interconnected community by providing a central platform for discovering local businesses, staying updated on community events, and celebrating our shared culture.
                     </p>
                 </div>
             </section>
-            
-            <div class="py-8">
-                <svg width="100%" height="40" viewBox="0 0 1440 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-orange-100">
-                    <path d="M0 20C240 20 240 0 480 0C720 0 720 20 960 20C1200 20 1200 40 1440 40V41H0V20Z" fill="currentColor"/>
-                </svg>
-            </div>
-
         </div>
 
         <div id="events" class="page hidden py-8 md:py-12">
-            <h2 class="text-3xl md:text-4xl font-bold text-ugnt-blue mb-8 text-center">Community Events</h2>
-            <div id="events-loading" class="text-center text-slate-500">
+            <h2 class="text-3xl md:text-4xl font-bold text-noble-text mb-8 text-center">Community Events</h2>
+            <div id="events-loading" class="text-center text-noble-text-muted">
                 <p>Loading events...</p>
             </div>
             <div id="events-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 </div>
         </div>
 
-        <div id="directory" class="page hidden py-8 md:py-12">
-            <h2 class="text-3xl md:text-4xl font-bold text-ugnt-blue mb-8 text-center">Business Directory</h2>
-            <div class="mb-8 p-6 bg-white rounded-xl shadow-md">
+        <div id="directory" class="page py-8 md:py-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-noble-text mb-8 text-center">UGNT Noble</h2>
+            <div class="mb-8 p-6 bg-slate-700/50 backdrop-blur-sm border border-slate-600/50 rounded-xl shadow-lg">
                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <input type="text" id="directory-search" placeholder="Search by name, category..." class="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-ugnt-orange focus:border-transparent transition">
-                    <select id="directory-filter" class="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-ugnt-orange focus:border-transparent transition">
+                    <input type="text" id="directory-search" placeholder="Search by name, category..." class="w-full p-3 bg-slate-800 border border-slate-600 rounded-lg focus:ring-2 focus:ring-noble-accent focus:border-transparent transition text-noble-text placeholder-noble-text-muted">
+                    <select id="directory-filter" class="w-full p-3 bg-slate-800 border border-slate-600 rounded-lg focus:ring-2 focus:ring-noble-accent focus:border-transparent transition text-noble-text">
                         <option value="">All Categories</option>
                         </select>
                 </div>
             </div>
-            <div id="directory-loading" class="text-center text-slate-500">
+            <div id="directory-loading" class="text-center text-noble-text-muted">
                 <p>Loading directory...</p>
             </div>
             <div id="directory-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 </div>
-            <div id="directory-no-results" class="hidden text-center text-slate-500 py-12">
+            <div id="directory-no-results" class="hidden text-center text-noble-text-muted py-12">
                 <p>No businesses found matching your criteria.</p>
             </div>
         </div>
 
         <div id="contact" class="page hidden py-8 md:py-12">
-            <div class="max-w-2xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
-                <h2 class="text-3xl md:text-4xl font-bold text-ugnt-blue mb-2 text-center">Join Our Directory</h2>
-                <p class="text-center text-slate-500 mb-8">Submit your business details to be featured in our community directory. Submissions will be reviewed by an admin before appearing on the site.</p>
+            <div class="max-w-2xl mx-auto bg-slate-700/80 backdrop-blur-sm p-8 rounded-2xl shadow-lg border border-slate-600/50">
+                <h2 class="text-3xl md:text-4xl font-bold text-noble-text mb-2 text-center">Join Our Directory</h2>
+                <p class="text-center text-noble-text-muted mb-8">Submit your business details to be featured. Submissions are reviewed before appearing on the site.</p>
                 
                 <form id="business-form" class="space-y-6">
                     <div>
-                        <label for="business-name" class="block text-sm font-medium text-slate-700">Business Name</label>
-                        <input type="text" id="business-name" name="businessName" required class="mt-1 block w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-ugnt-orange focus:border-transparent transition">
+                        <label for="business-name" class="block text-sm font-medium text-noble-text">Business Name</label>
+                        <input type="text" id="business-name" name="businessName" required class="mt-1 block w-full p-3 bg-slate-800 border border-slate-600 rounded-lg focus:ring-2 focus:ring-noble-accent focus:border-transparent transition text-noble-text placeholder-noble-text-muted">
                     </div>
                     <div>
-                        <label for="owner-name" class="block text-sm font-medium text-slate-700">Owner Name</label>
-                        <input type="text" id="owner-name" name="ownerName" required class="mt-1 block w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-ugnt-orange focus:border-transparent transition">
+                        <label for="owner-name" class="block text-sm font-medium text-noble-text">Owner Name</label>
+                        <input type="text" id="owner-name" name="ownerName" required class="mt-1 block w-full p-3 bg-slate-800 border border-slate-600 rounded-lg focus:ring-2 focus:ring-noble-accent focus:border-transparent transition text-noble-text placeholder-noble-text-muted">
                     </div>
                     <div>
-                        <label for="contact-info" class="block text-sm font-medium text-slate-700">Contact Info (Phone or Email)</label>
-                        <input type="text" id="contact-info" name="contactInfo" required class="mt-1 block w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-ugnt-orange focus:border-transparent transition">
+                        <label for="contact-info" class="block text-sm font-medium text-noble-text">Contact Info (Phone or Email)</label>
+                        <input type="text" id="contact-info" name="contactInfo" required class="mt-1 block w-full p-3 bg-slate-800 border border-slate-600 rounded-lg focus:ring-2 focus:ring-noble-accent focus:border-transparent transition text-noble-text placeholder-noble-text-muted">
                     </div>
                      <div>
-                        <label for="description" class="block text-sm font-medium text-slate-700">Short Description</label>
-                        <textarea id="description" name="description" rows="3" required class="mt-1 block w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-ugnt-orange focus:border-transparent transition"></textarea>
+                        <label for="description" class="block text-sm font-medium text-noble-text">Short Description</label>
+                        <textarea id="description" name="description" rows="3" required class="mt-1 block w-full p-3 bg-slate-800 border border-slate-600 rounded-lg focus:ring-2 focus:ring-noble-accent focus:border-transparent transition text-noble-text placeholder-noble-text-muted"></textarea>
                     </div>
                     <div>
-                        <label for="website-link" class="block text-sm font-medium text-slate-700">Website Link (optional)</label>
-                        <input type="url" id="website-link" name="websiteLink" placeholder="https://example.com" class="mt-1 block w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-ugnt-orange focus:border-transparent transition">
+                        <label for="website-link" class="block text-sm font-medium text-noble-text">Website Link (optional)</label>
+                        <input type="url" id="website-link" name="websiteLink" placeholder="https://example.com" class="mt-1 block w-full p-3 bg-slate-800 border border-slate-600 rounded-lg focus:ring-2 focus:ring-noble-accent focus:border-transparent transition text-noble-text placeholder-noble-text-muted">
                     </div>
                     <div>
-                        <label for="category" class="block text-sm font-medium text-slate-700">Category</label>
-                        <input type="text" id="category" name="category" required placeholder="e.g., Restaurant, IT Services, Retail" class="mt-1 block w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-ugnt-orange focus:border-transparent transition">
+                        <label for="category" class="block text-sm font-medium text-noble-text">Category</label>
+                        <input type="text" id="category" name="category" required placeholder="e.g., Restaurant, IT Services, Retail" class="mt-1 block w-full p-3 bg-slate-800 border border-slate-600 rounded-lg focus:ring-2 focus:ring-noble-accent focus:border-transparent transition text-noble-text placeholder-noble-text-muted">
                     </div>
                     <div class="text-center">
-                        <button type="submit" id="submit-button" class="bg-ugnt-orange text-white px-8 py-3 rounded-full hover:bg-orange-600 transition duration-300 shadow-md font-bold text-lg w-full md:w-auto">Submit for Review</button>
+                        <button type="submit" id="submit-button" class="text-slate-900 bg-gradient-to-tr from-noble-accent to-noble-accent-light font-bold px-8 py-3 rounded-full hover:opacity-90 transition-opacity duration-300 shadow-lg w-full md:w-auto">Submit for Review</button>
                     </div>
                 </form>
                 <div id="form-status" class="mt-6 text-center text-lg"></div>
@@ -219,25 +183,17 @@
 
     </main>
 
-    <footer class="bg-ugnt-blue text-white mt-16 pt-12 relative overflow-hidden">
-        <div class="footer-pattern"></div>
-        <div class="absolute top-0 left-0 right-0 -mt-px">
-            <svg width="100%" height="60" viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-                <path d="M0 60V0C480 20 960 20 1440 0V60H0Z" fill="#FB923C" fill-opacity="0.2"></path>
-                <path d="M0 60V15C480 35 960 35 1440 15V60H0Z" fill="#FB923C" fill-opacity="0.3"></path>
-                <path d="M0 60V30C480 50 960 50 1440 30V60H0Z" fill="#FB923C" fill-opacity="0.4"></path>
-            </svg>
-        </div>
-        <div class="container mx-auto px-6 py-8 text-center relative z-10">
+    <footer class="bg-slate-800/70 mt-16 pt-12">
+        <div class="container mx-auto px-6 py-8 text-center">
             <div class="flex justify-center space-x-6 mb-4">
-                <a href="#" class="hover:text-ugnt-gold transition duration-300">
+                <a href="#" class="hover:text-noble-accent transition duration-300">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.494v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
                 </a>
-                <a href="#" class="hover:text-ugnt-gold transition duration-300">
+                <a href="#" class="hover:text-noble-accent transition duration-300">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664-4.771 4.919 4.919 1.266-.058 1.644-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.059-1.281.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.441 1.441 1.441 1.441-.645 1.441-1.441-.645-1.44-1.441-1.44z"/></svg>
                 </a>
             </div>
-            <p class="text-slate-400">&copy; <span id="copyright-year"></span> United Gujaratis of North Texas. All Rights Reserved.</p>
+            <p class="text-noble-text-muted">&copy; <span id="copyright-year"></span> UGNT Noble. All Rights Reserved.</p>
         </div>
     </footer>
 
@@ -249,15 +205,32 @@
 
         // --- PAGE NAVIGATION ---
         const pages = document.querySelectorAll('.page');
+        const navLinks = document.querySelectorAll('.nav-link');
+
         function showPage(pageId) {
+            // Hide all pages
             pages.forEach(page => {
-                if (page.id === pageId) {
-                    page.classList.remove('hidden');
+                page.classList.add('hidden');
+            });
+            // Show the target page
+            const activePage = document.getElementById(pageId);
+            if (activePage) {
+                activePage.classList.remove('hidden');
+            }
+
+            // Update nav link styles
+            navLinks.forEach(link => {
+                if (link.getAttribute('onclick').includes(`'${pageId}'`)) {
+                    link.classList.add('text-noble-accent-light', 'font-bold');
+                    link.classList.remove('text-noble-text');
                 } else {
-                    page.classList.add('hidden');
+                    link.classList.remove('text-noble-accent-light', 'font-bold');
+                    link.classList.add('text-noble-text');
                 }
             });
+
             window.scrollTo(0, 0);
+            // Hide mobile menu after navigation
             document.getElementById('mobile-menu').classList.add('hidden');
         }
 
@@ -274,6 +247,9 @@
             loadDirectory();
             document.getElementById('copyright-year').textContent = new Date().getFullYear();
             
+            // Set default page
+            showPage('directory');
+
             const businessForm = document.getElementById('business-form');
             businessForm.addEventListener('submit', handleFormSubmit);
         });
@@ -341,14 +317,14 @@
 
             events.forEach(event => {
                 const card = `
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                    <div class="bg-slate-700/40 backdrop-blur-md border border-slate-600/50 rounded-2xl shadow-lg overflow-hidden transform hover:-translate-y-1 transition-all duration-300">
                         <img src="${event.imageUrl}" 
-                             onerror="this.onerror=null;this.src='https://placehold.co/600x400/F97316/FFFFFF?text=Event';"
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x400/FBBF24/334155?text=Event';"
                              alt="${event.title}" class="w-full h-56 object-cover">
                         <div class="p-6">
-                            <p class="text-sm text-ugnt-orange font-semibold">${event.date}</p>
-                            <h3 class="font-laila text-xl font-bold text-ugnt-blue mt-2">${event.title}</h3>
-                            <p class="text-slate-600 mt-3 text-sm">${event.description}</p>
+                            <p class="text-sm text-noble-accent font-semibold">${event.date}</p>
+                            <h3 class="font-laila text-xl font-bold text-noble-text mt-2">${event.title}</h3>
+                            <p class="text-noble-text-muted mt-3 text-sm">${event.description}</p>
                         </div>
                     </div>`;
                 gridEl.innerHTML += card;
@@ -420,15 +396,15 @@
             loadingEl.style.display = 'none';
 
             businesses.forEach(biz => {
-                const websiteLink = biz.website ? `<a href="${biz.website}" target="_blank" rel="noopener noreferrer" class="inline-block mt-4 bg-orange-100 text-ugnt-orange px-4 py-2 rounded-full text-sm font-semibold hover:bg-orange-200 transition">Visit Website</a>` : '';
+                const websiteLink = biz.website ? `<a href="${biz.website}" target="_blank" rel="noopener noreferrer" class="inline-block mt-4 bg-noble-accent/20 text-noble-accent font-semibold px-4 py-2 rounded-full text-sm hover:bg-noble-accent/30 transition-colors duration-300">Visit Website</a>` : '';
                 const card = `
-                    <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col">
-                        <h3 class="font-laila text-xl font-bold text-ugnt-blue">${biz.name}</h3>
-                        <p class="text-sm text-slate-500 mb-2">Category: ${biz.category}</p>
-                        <p class="text-slate-600 mt-2 flex-grow">${biz.description}</p>
-                        <div class="mt-4 pt-4 border-t border-slate-200">
-                            <p class="font-semibold text-slate-700">${biz.owner}</p>
-                            <p class="text-slate-500">${biz.contact}</p>
+                    <div class="bg-slate-700/40 backdrop-blur-md border border-slate-600/50 rounded-2xl shadow-lg p-6 flex flex-col transform hover:-translate-y-1 transition-all duration-300">
+                        <h3 class="font-laila text-xl font-bold text-noble-text">${biz.name}</h3>
+                        <p class="text-sm text-noble-text-muted mb-2">Category: ${biz.category}</p>
+                        <p class="text-noble-text mt-2 flex-grow">${biz.description}</p>
+                        <div class="mt-4 pt-4 border-t border-slate-600/50">
+                            <p class="font-semibold text-noble-text">${biz.owner}</p>
+                            <p class="text-noble-text-muted">${biz.contact}</p>
                         </div>
                         ${websiteLink}
                     </div>`;
